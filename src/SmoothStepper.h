@@ -168,7 +168,7 @@ class SmoothStepper {
 
     //non static and non volatile variables
     int pin_count;               // How many pins are in use
-    int step_number = 0;         // Which step the motor is on
+    long step_number = 0;         // Which step the motor is on
     int deccelerationAtStep;     // At which step do we start to stop
     long start_time;             // Start time to calculate acceleration (ms)
     bool stopping = false;       // Are we stopping
