@@ -346,9 +346,9 @@ double SmoothStepper::calculateStartTime() {
 int SmoothStepper::isArrived() {
     if (this->step_to_be == this->current_step &&
         this->direction == 0 && this->steps_to_move == 0) {
-        return 0;
+        return TRUE;
     } else {
-        return 1;
+        return FALSE;
     }
 }
 
@@ -356,7 +356,7 @@ int SmoothStepper::isArrived() {
  * Wait until it reachs his final step
  */
 void SmoothStepper::waitUntilArrived() {
-    while (this->isArrived()) {
+    while (!this->isArrived()) {
     }
 }
 
