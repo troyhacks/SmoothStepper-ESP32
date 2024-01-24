@@ -267,7 +267,7 @@ float SmoothStepper::calculateDelay() {
 }
 
 void SmoothStepper::calculStrategy() {
-    int stepToMove = this->step_to_be - this->current_step;
+    long stepToMove = this->step_to_be - this->current_step;
 
     if (stepToMove == 0 && this->newSpeed == this->vmin) {
         return;
@@ -292,14 +292,14 @@ void SmoothStepper::calculStrategy() {
     } else {
         float timeToVmin = (this->vmin - this->current_speed) / -this->acc;                           // ms
         float timeToVmax = (this->vmax - this->current_speed) / this->acc;                            // ms
-        int stepToVmin = -this->acc / 2 * pow(timeToVmin, 2) + this->current_speed * timeToVmin + 1;  // number of steps
-        int stepToVmax = this->acc / 2 * pow(timeToVmax, 2) + this->current_speed * timeToVmax + 1;   // number of steps
+        long stepToVmin = -this->acc / 2 * pow(timeToVmin, 2) + this->current_speed * timeToVmin + 1;  // number of steps
+        long stepToVmax = this->acc / 2 * pow(timeToVmax, 2) + this->current_speed * timeToVmax + 1;   // number of steps
         if (abs(stepToMove) <= abs(stepToVmin)) {                                                     // stopping right now
             this->deccelerationAtStep = this->current_step;
             this->stopping = true;
         } else {  // We accelerate
             this->stopping = false;
-            int cases = abs(stepToMove) - abs(stepToVmax) - abs(this->stepVmaxToVmin);
+            long cases = abs(stepToMove) - abs(stepToVmax) - abs(this->stepVmaxToVmin);
             if (cases == 0) {  // Go to vmax and then stopping.
                 if (this->direction == 1) this->deccelerationAtStep = this->current_step + stepToVmax - 1;
                 if (this->direction == -1) this->deccelerationAtStep = this->current_step - stepToVmax + 1;
