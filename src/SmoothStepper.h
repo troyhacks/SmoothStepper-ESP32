@@ -153,15 +153,15 @@ class SmoothStepper {
     volatile int direction = 0;             // Direction of rotation
     volatile long step_to_be = 0;           // Global step to be
     volatile long current_step = 0;         // Current step
-    volatile int steps_to_move = 0;         // Step to add/substract to step_to_be
-    volatile int number_of_steps;           // Total number of steps this motor can take
+    volatile long steps_to_move = 0;         // Step to add/substract to step_to_be
+    volatile long number_of_steps;           // Total number of steps this motor can take
     volatile bool smoothActivated = false;  // Smooth activated
     volatile float vmin;                    // Minimum speed (step/ms)
     volatile float current_speed = 0;       // Current speed (step/ms)
     volatile float vmax;                    // Maximum speed (step/ms)
     volatile double previousSpeed = 0;      // Previous calculated speed
     volatile float acc;                     // Acceleration (step/ms²)
-    volatile int stepVmaxToVmin;            // Number of steps to reach vmax from vmin
+    volatile long stepVmaxToVmin;            // Number of steps to reach vmax from vmin
 
     //static variables
     static int numberOfTasks;
@@ -169,7 +169,7 @@ class SmoothStepper {
     //non static and non volatile variables
     int pin_count;               // How many pins are in use
     long step_number = 0;         // Which step the motor is on
-    int deccelerationAtStep;     // At which step do we start to stop
+    long deccelerationAtStep;     // At which step do we start to stop
     long start_time;             // Start time to calculate acceleration (ms)
     bool stopping = false;       // Are we stopping
     float newDelay = 9.77;       // Delay to wait before next step
