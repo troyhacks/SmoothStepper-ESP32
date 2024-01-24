@@ -178,7 +178,7 @@ void SmoothStepper::begin() {
         this,                                    // parameter of the task
         1,                                       // priority of the task
         NULL,                                    // Task handle to keep track of created task
-        0);                                      // pin task to core 0
+        1);                                      // pin task to core 0
 }
 
 void SmoothStepper::staticSmoothStepperTask(void *pvParameters) {
