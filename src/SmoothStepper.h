@@ -127,10 +127,10 @@ class SmoothStepper {
     void waitUntilArrived();
 
     // Return absolute step number
-    int whatStepNumber();
+    long whatStepNumber();
 
     // Return abosulte rotation number
-    int whatRotationNumber();
+    long whatRotationNumber();
 
     // Go to Origin
     void goToOrigin(bool rotation_included);
