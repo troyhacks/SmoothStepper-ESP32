@@ -346,9 +346,9 @@ double SmoothStepper::calculateStartTime() {
 int SmoothStepper::isArrived() {
     if (this->step_to_be == this->current_step &&
         this->direction == 0 && this->steps_to_move == 0) {
-        return TRUE;
+        return true;
     } else {
-        return FALSE;
+        return false;
     }
 }
 
