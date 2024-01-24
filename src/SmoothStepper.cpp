@@ -363,7 +363,9 @@ void SmoothStepper::waitUntilArrived() {
 /*
  * Return the step number
  */
-long SmoothStepper::whatStepNumber() { return this->current_step % 2048; }
+long SmoothStepper::whatStepNumber() { 
+  return this->current_step; // % 2048; 
+}
 
 /*
  * Return the number of rotation
